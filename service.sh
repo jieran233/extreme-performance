@@ -7,6 +7,6 @@
 MODDIR=${0%/*}
 
 # This script will be executed in late_start service mode
-source ${MODDIR}/configs/fast.sh  # 极致性能，不考虑功耗
-# source ${MODDIR}/configs/performance.sh  # 性能模式
-# source ${MODDIR}/configs/balance.sh  # 平衡模式，兼容游戏&省电
+sh $MODDIR/configs/fast.sh  # 极致性能，不考虑功耗
+# sh $MODDIR/configs/performance.sh  # 性能模式
+# sh $MODDIR/configs/balance.sh  # 平衡模式，兼容游戏&省电
