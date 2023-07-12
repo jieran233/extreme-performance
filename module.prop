@@ -1,6 +1,6 @@
-id=<string>
-name=<string>
-version=<string>
-versionCode=<int>
-author=<string>
-description=<string>
+id=extreme-performance
+name=extreme-performance
+version=230705
+versionCode=1
+author=酷安@追求手机优化的小白
+description=全安卓通用优化，提高性能，优化触控、省电与缓冲渲染。设备启动时应用更改。内置3个配置，如需切换请自行修改压缩包内`service.sh`。此Magisk模块版本由酷安@孑染制作
