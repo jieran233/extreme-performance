@@ -1,5 +1,5 @@
-echo 开始轻触模式，优化触控手感
-settings put system vtouch_switch 0
+echo 开始轻触模式，优化触控手感 > $MODDIR/log.log
+settings put system vtouch_switch 0 > $MODDIR/log.log
 echo 触摸双击10
 settings put secure multi_press_timeout 10
 echo 触摸长按200
