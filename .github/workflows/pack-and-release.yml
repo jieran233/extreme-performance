@@ -1,0 +1,38 @@
+name: Pack and Release
+
+on:
+  push:
+    branches:
+      - master  # 根据你的分支设置进行调整
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create ZIP archive
+        run: zip -r release.zip .  # 这里使用 zip 命令创建压缩包，可以根据需要使用其他压缩工具
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./extreme-performance.zip  # 这里根据你创建的压缩包名称进行调整
+          asset_name: extreme-performance.zip
+          asset_content_type: application/zip
